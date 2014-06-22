@@ -1,0 +1,10 @@
+<table class="table table-hover">
+  <th>Restaurant</th>
+  <th>Location</th>
+  <% @restaurants.each do |restaurant| %>
+    <tr>
+      <td><%= restaurant.name %></td>
+      <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zipcode %></td>
+    </tr>
+  <% end %>
+</table>
