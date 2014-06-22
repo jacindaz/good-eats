@@ -39,3 +39,4 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 gem 'annotate', ">=2.6.0"
+gem 'pry-rails', :group => :development

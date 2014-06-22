@@ -1,13 +1,22 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.limit(10)
     @title = "All Restaurants"
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
     @title = "About #{@restaurant.name}"
+
+    @reviews = []
+    Review.all.each do |review|
+      if review.restaurant_id.to_s == params[:id]
+        @reviews << review
+      end
+    end
+
+
   end
 
   def new
@@ -32,7 +41,7 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :city, :state, :zipcode, :description, :cateogry)
+    params.require(:restaurant).permit(:name, :address, :city, :state, :zipcode, :description, :category)
   end
 
 end

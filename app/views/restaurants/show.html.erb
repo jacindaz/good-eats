@@ -1,3 +1,7 @@
+<i>Created on <%= @restaurant.created_at.strftime("%B %d, %Y | %I:%M %p ") %></i>
+
+<hr>
+
 <h3>Where to find us</h3>
 <%= @restaurant.address %><br>
 <%= @restaurant.city %>, <%= @restaurant.state %> <%= @restaurant.zipcode %>
@@ -5,3 +9,20 @@
 <h3>About Us</h3>
 <i><%= @restaurant.category %></i>
 <p><%= @restaurant.description %></p>
+
+<h3>Reviews</h3>
+<ul>
+  <% @reviews.each do |review| %>
+    <li><%= review.body %> (<%= review.rating %>)</li>
+  <% end %>
+</ul>
+
+<br>
+
+<h4><%= link_to "Write a Review", new_restaurant_review_path(@restaurant) %></h4>
+
+<br>
+<hr>
+<br>
+
+
