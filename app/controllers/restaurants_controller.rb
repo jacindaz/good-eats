@@ -15,12 +15,13 @@ class RestaurantsController < ApplicationController
         @reviews << review
       end
     end
-
-
   end
 
   def new
     @restaurant = Restaurant.new
+    @state_object = States.new
+    @states = @state_object.abbreviations
+    #binding.pry
     @title = "Create a New Restaurant"
   end
 

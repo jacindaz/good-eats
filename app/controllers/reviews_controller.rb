@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @restaurant = Restaurant.find(params["restaurant_id"])
+    @title = "#{@restaurant.name}"
   end
 
   # POST action to create a new review
