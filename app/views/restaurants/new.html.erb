@@ -8,30 +8,25 @@
     </ul>
   <% end %>
 
-<div>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+<div class="form-inline">
+  <%= f.label :name %>&nbsp;&nbsp;<%= f.text_field :name %>
 </div>
+<br>
 
-<div>
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-</div>
+<div class="form-inline">
+  <%= f.label :address %>&nbsp;&nbsp;<%= f.text_field :address %>
+</div><br>
 
-<div>
+<div class="form-inline">
   <%= f.label :city %>
-  <%= f.text_field :city %>
-</div>
+  <%= f.text_field :city %>&nbsp;
 
-<div>
   <%= f.label :state %>
-  <%= f.select :state, @states %>
-</div>
+  <%= f.select :state, @states %>&nbsp;
 
-<div>
-  <%= f.label :zipcode %>
+  <%= f.label "Zip" %>
   <%= f.text_field :zipcode %>
-</div>
+</div><br>
 
 <div>
   <%= f.label :description %>
