@@ -2,6 +2,12 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = Restaurant.all
+    @title = "All Restaurants"
+  end
+
+  def show
+    @restaurant = Restaurant.find(params[:id])
+    @title = "About #{@restaurant.name}"
   end
 
   def new
@@ -11,17 +17,22 @@ class RestaurantsController < ApplicationController
 
   # POST action to create a new restaurant
   def create
-    @question = Question.new(question_params)
+    @restaurant = Restaurant.new(restaurant_params)
 
-    if @question.save
-      redirect_to "/questions/#{@question.id}"
+    if @restaurant.save
+      redirect_to "/restaurants/#{@restaurant.id}"
     else
-      flash[:notice] = "Your question couldn't be saved. Sorry!"
+      flash[:notice] = "Your restaurant couldn't be saved. Sorry!"
       render :new
     end
   end
 
   def update
+  end
+
+  private
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :address, :city, :state, :zipcode, :description, :cateogry)
   end
 
 end
