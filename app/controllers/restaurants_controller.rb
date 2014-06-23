@@ -21,12 +21,13 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new
     @state_object = States.new
     @states = @state_object.abbreviations
-    #binding.pry
     @title = "Create a New Restaurant"
   end
 
   # POST action to create a new restaurant
   def create
+    @state_object = States.new
+    @states = @state_object.abbreviations
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save

@@ -4,8 +4,8 @@
   <th>Description</th>
   <% @restaurants.each do |restaurant| %>
     <tr>
-      <td><%= link_to restaurant.name, restaurant_path(restaurant.id) %></td>
-      <td><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zipcode %></td>
+      <td width="200px"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></td>
+      <td width="300px"><%= restaurant.address %>, <%= restaurant.city %>, <%= restaurant.state %> <%= restaurant.zipcode %></td>
       <td><%= restaurant.description %></td>
     </tr>
   <% end %>
