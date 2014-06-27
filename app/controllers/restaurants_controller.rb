@@ -1,20 +1,21 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.limit(10)
-    @title = "All Restaurants"
+    @restaurants = Restaurant.order(updated_at: :desc).limit(10)
+    # @title = "All Restaurants"
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @title = "About #{@restaurant.name}"
+    # @title = "About #{@restaurant.name}"
 
-    @reviews = []
-    Review.all.each do |review|
-      if review.restaurant_id.to_s == params[:id]
-        @reviews << review
-      end
-    end
+    @reviews = @restaurant.reviews
+    # @reviews = []
+    # Review.all.each do |review|
+    #   if review.restaurant_id.to_s == params[:id]
+    #     @reviews << review
+    #   end
+    # end
   end
 
   def new
