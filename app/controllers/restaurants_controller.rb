@@ -20,26 +20,23 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
-    @state_object = States.new
-    @states = @state_object.abbreviations
-    @title = "Create a New Restaurant"
+    state_object = States.new
+    @states = state_object.abbreviations
+    # @title = "Create a New Restaurant"
   end
 
   # POST action to create a new restaurant
   def create
-    @state_object = States.new
-    @states = @state_object.abbreviations
+    state_object = States.new
+    @states = state_object.abbreviations
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to "/restaurants/#{@restaurant.id}"
+      redirect_to "/restaurants/#{@restaurant.id}" # restaurant_path(@restaurant)
     else
       flash[:notice] = "Your restaurant couldn't be saved. Sorry!"
       render :new
     end
-  end
-
-  def update
   end
 
   private

@@ -12,9 +12,9 @@ class Restaurant < ActiveRecord::Base
   validates :city,
     presence: true
   validates :state,
-    presence: true,
-    # length: true,
-    inclusion: { in: States.new.state_abbrevs }
+    presence: true#,
+    # length: 2
+    # inclusion: { in: States.new.state_abbrev }
   validates :zipcode,
     presence: true,
     length: { in: 5..10 }
